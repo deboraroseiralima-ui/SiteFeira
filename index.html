@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendendo o Daltonismo - Acessibilidade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra de Ferramentas de Acessibilidade -->
+    <header role="banner" class="accessibility-bar">
+        <h1>Portal do Daltonismo</h1>
+        <div class="controls">
+            <button id="btn-increase" aria-label="Aumentar tamanho do texto">A+ Aumentar Fonte</button>
+            <button id="btn-decrease" aria-label="Diminuir tamanho do texto">A- Diminuir Fonte</button>
+            <button id="btn-speak" aria-label="Ouvir o texto do tópico atual">🔊 Ouvir Página</button>
+        </div>
+    </header>
+
+    <!-- Navegação por Abas -->
+    <nav role="navigation" aria-label="Menu principal">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'sobre')">O que é?</button>
+            <button class="tab-btn" onclick="openTab(event, 'tipos')">Tipos e Visão</button>
+            <button class="tab-btn" onclick="openTab(event, 'causas')">Causas</button>
+            <button class="tab-btn" onclick="openTab(event, 'cotidiano')">Cotidiano</button>
+            <button class="tab-btn" onclick="openTab(event, 'video')">Vídeo Explicativo</button>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main id="main-content">
+        
+        <!-- Aba: O que é -->
+        <section id="sobre" class="tab-content active">
+            <h2>O que é Daltonismo?</h2>
+            <p>O daltonismo, também chamado de <strong>discromatopsia</strong>, é uma alteração visual na qual a pessoa tem dificuldade para distinguir certas cores, principalmente o vermelho e o verde, e menos frequentemente o azul.</p>
+            <p>Trata-se de uma condição genética na maioria dos casos, mas que também pode ser adquirida por lesões ou doenças no olho e cérebro.</p>
+        </section>
+
+        <!-- Aba: Tipos -->
+        <section id="tipos" class="tab-content">
+            <h2>As Formas de Daltonismo</h2>
+            <p>O daltonismo varia de acordo com os pigmentos fotorreceptores (cones) ausentes ou com mau funcionamento na retina:</p>
+
+            <div class="grid-tipos">
+                <article class="card">
+                    <h3>Protanopia</h3>
+                    <p>Ausência de cones vermelhos. Dificuldade em distinguir o vermelho do verde e tons de marrom/cinza.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Protanopia.png/320px-Protanopia.png" alt="Simulação de visão com Protanopia: o espectro vermelho aparece amarelado ou escuro.">
+                </article>
+
+                <article class="card">
+                    <h3>Deuteranopia</h3>
+                    <p>Ausência de cones verdes (a forma mais comum). As cores vermelha e verde tendem a ser vistas em tons de amarelo e marrom.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Deuteranopia.png/320px-Deuteranopia.png" alt="Simulação de visão com Deuteranopia: o verde e vermelho ficam misturados em tons amarelados.">
+                </article>
+
+                <article class="card">
+                    <h3>Tritanopia</h3>
+                    <p>Ausência de cones azuis (rara). Dificuldade em diferenciar azul de verde, e amarelo de violeta/rosa.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Tritanopia.png/320px-Tritanopia.png" alt="Simulação de visão com Tritanopia: o tom azul fica esverdeado e o amarelo fica rosado.">
+                </article>
+
+                <article class="card">
+                    <h3>Acromatopsia (Monocromia)</h3>
+                    <p>Visão em preto, branco e tons de cinza. É a forma mais rara e severa da condição.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Monochromacy.png/320px-Monochromacy.png" alt="Simulação de visão em Monocromia: imagem totalmente em tons de cinza.">
+                </article>
+            </div>
+        </section>
+
+        <!-- Aba: Causas -->
+        <section id="causas" class="tab-content">
+            <h2>Causas do Daltonismo</h2>
+            <p>A causa principal é uma <strong>herança genética recessiva ligada ao cromossomo X</strong>.</p>
+            <ul>
+                <li>Como os homens possuem cromossomos <strong>XY</strong>, basta herdarem um cromossomo X afetado para manifestar a condição. Por isso, afeta cerca de 8% dos homens.</li>
+                <li>As mulheres possuem cromossomos <strong>XX</strong> e precisam que ambos os cromossomos X tenham o gene modificado para manifestar o daltonismo (afetando menos de 1% das mulheres).</li>
+            </ul>
+        </section>
+
+        <!-- Aba: Cotidiano -->
+        <section id="cotidiano" class="tab-content">
+            <h2>Consequências no Cotidiano</h2>
+            <p>O daltonismo não afeta a nitidez da visão, mas traz desafios práticos no dia a dia:</p>
+            <ul>
+                <li><strong>Sinais de trânsito:</strong> Identificação da posição da luz no semáforo em vez de focar apenas na cor.</li>
+                <li><strong>Combinação de roupas:</strong> Dificuldade em escolher peças que combinem visualmente.</li>
+                <li><strong>Escola e Trabalho:</strong> Interpretação de gráficos, mapas, tabelas coloridas e sinalizações de segurança.</li>
+                <li><strong>Escolhas profissionais:</strong> Algumas profissões (como aviadores, marinheiros e certas forças armadas) possuem restrições para daltônicos graves.</li>
+            </ul>
+        </section>
+
+        <!-- Aba: Vídeo -->
+        <section id="video" class="tab-content">
+            <h2>Vídeo Explicativo</h2>
+            <p>Assista ao vídeo abaixo para entender melhor o funcionamento da visão daltônica:</p>
+            <div class="video-container">
+                <iframe 
+                    width="100%" 
+                    height="400" 
+                    src="https://www.youtube.com/embed/A7qGNzzqXA4" 
+                    title="Vídeo sobre Daltonismo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Conteúdo resumido com base nas referências da Wikipédia e Brasil Escola. Focado em Acessibilidade e UX.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

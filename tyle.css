@@ -1,0 +1,141 @@
+/* Configurações Globais de Acessibilidade: Fonte sem serifa e grande */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Fonte sem serifa */
+    font-size: 20px; /* Base grande para acessibilidade */
+    line-height: 1.6;
+    background-color: #f4f6f8;
+    color: #111111;
+    padding: 20px;
+}
+
+/* Barra Superior de Acessibilidade */
+.accessibility-bar {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.controls button {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-left: 5px;
+    background-color: #ffffff;
+    color: #003366;
+    border: 2px solid #003366;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.controls button:hover, .controls button:focus {
+    background-color: #ffcc00;
+    color: #000000;
+    outline: 3px solid #000;
+}
+
+/* Menu de Abas */
+nav {
+    margin-top: 20px;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tab-btn {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 20px;
+    background-color: #e0e0e0;
+    border: 2px solid #333333;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background-color: #003366;
+    color: #ffffff;
+}
+
+/* Conteúdo das Abas */
+main {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+p, li {
+    margin-bottom: 15px;
+}
+
+ul {
+    margin-left: 25px;
+}
+
+/* Layout em Cards para os Tipos de Daltonismo */
+.grid-tipos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid #999;
+}
+
+/* Vídeo Responsivo */
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 16px;
+    color: #555555;
+}

@@ -1,65 +1,52 @@
-// --- 1. LÓGICA DE AUMENTAR E DIMINUIR FONTE ---
-let currentFontSize = 100; // Porcentagem do tamanho da fonte
+// Alteração de Tamanho da Fonte
+let currentFontSize = 1.25; // Base rem
 
 document.getElementById('btn-increase').addEventListener('click', () => {
-    if (currentFontSize < 160) { // Limite máximo
-        currentFontSize += 10;
-        document.body.style.fontSize = currentFontSize + '%';
+    if (currentFontSize < 1.85) {
+        currentFontSize += 0.15;
+        document.body.style.fontSize = `${currentFontSize}rem`;
     }
 });
 
 document.getElementById('btn-decrease').addEventListener('click', () => {
-    if (currentFontSize > 80) { // Limite mínimo
-        currentFontSize -= 10;
-        document.body.style.fontSize = currentFontSize + '%';
+    if (currentFontSize > 0.95) {
+        currentFontSize -= 0.15;
+        document.body.style.fontSize = `${currentFontSize}rem`;
     }
 });
 
-// --- 2. LÓGICA DE NAVEGAÇÃO POR ABAS ---
+// Transição entre Abas
 function openTab(event, tabId) {
-    // Esconde todas as abas
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.classList.remove('active'));
 
-    // Desativa o estado ativo de todos os botões de abas
     const buttons = document.querySelectorAll('.tab-btn');
-    buttons.forEach(button => button.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
 
-    // Mostra a aba selecionada e ativa o botão clicado
     document.getElementById(tabId).classList.add('active');
     event.currentTarget.classList.add('active');
-
-    // Se a voz estiver lendo ao trocar de aba, para a leitura antiga
-    if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-    }
 }
 
-// --- 3. LÓGICA DO LEITOR DE VOZ (ACESSIBILIDADE PARA VISÃO DEBILITADA) ---
-const speakBtn = document.getElementById('btn-speak');
+// Leitor de Tela (Sintetizador de Voz Web Speech API)
+const synth = window.speechSynthesis;
 
-speakBtn.addEventListener('click', () => {
-    // Verifica se o navegador já está falando
-    if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel(); // Para a leitura
-        speakBtn.textContent = '🔊 Ouvir Página';
-        return;
+document.getElementById('btn-speak').addEventListener('click', () => {
+    if (synth.speaking) {
+        synth.cancel();
     }
 
-    // Pega o conteúdo de texto da aba visível no momento
     const activeSection = document.querySelector('.tab-content.active');
-    if (activeSection) {
-        const textToRead = activeSection.innerText;
+    const textToRead = activeSection ? activeSection.innerText : document.body.innerText;
 
-        const utterance = new SpeechSynthesisUtterance(textToRead);
-        utterance.lang = 'pt-BR'; // Configura o idioma para Português do Brasil
-        utterance.rate = 1.0;     // Velocidade normal da fala
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+    utterance.lang = 'pt-BR';
+    utterance.rate = 1.0;
 
-        utterance.onend = () => {
-            speakBtn.textContent = '🔊 Ouvir Página';
-        };
+    synth.speak(utterance);
+});
 
-        window.speechSynthesis.speak(utterance);
-        speakBtn.textContent = '⏹️ Parar Leitura';
+document.getElementById('btn-stop').addEventListener('click', () => {
+    if (synth.speaking) {
+        synth.cancel();
     }
 });

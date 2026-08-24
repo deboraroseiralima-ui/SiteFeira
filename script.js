@@ -1,5 +1,5 @@
-// Alteração de Tamanho da Fonte
-let currentFontSize = 1.25; // Base rem
+// 1. Controle de Tamanho da Fonte
+let currentFontSize = 1.25;
 
 document.getElementById('btn-increase').addEventListener('click', () => {
     if (currentFontSize < 1.85) {
@@ -15,7 +15,16 @@ document.getElementById('btn-decrease').addEventListener('click', () => {
     }
 });
 
-// Transição entre Abas
+// 2. Modo Alto Contraste
+const btnContrast = document.getElementById('btn-contrast');
+
+btnContrast.addEventListener('click', () => {
+    document.body.classList.toggle('high-contrast');
+    const isContrastActive = document.body.classList.contains('high-contrast');
+    btnContrast.setAttribute('aria-pressed', isContrastActive);
+});
+
+// 3. Alternância entre Abas
 function openTab(event, tabId) {
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.classList.remove('active'));
@@ -27,7 +36,7 @@ function openTab(event, tabId) {
     event.currentTarget.classList.add('active');
 }
 
-// Leitor de Tela (Sintetizador de Voz Web Speech API)
+// 4. Leitor por Voz (Sintetizador Web Speech)
 const synth = window.speechSynthesis;
 
 document.getElementById('btn-speak').addEventListener('click', () => {

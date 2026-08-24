@@ -3,98 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisãoAcessível - Daltonismo</title>
+    <title>Visão Viva - Daltonismo e Acessibilidade</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Esferas de luz animadas no fundo -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Barra de Acessibilidade -->
     <header class="top-bar">
-        <div class="brand">Visão<span>Acessível</span></div>
+        <div class="brand">Visão<span>Viva</span></div>
         <div class="accessibility-controls">
-            <button id="btn-decrease" aria-label="Diminuir Fonte">A-</button>
-            <button id="btn-increase" aria-label="Aumentar Fonte">A+</button>
+            <button id="btn-contrast" title="Alternar Alto Contraste" aria-pressed="false">🌓 Alto Contraste</button>
+            <button id="btn-decrease" title="Diminuir Fonte">A-</button>
+            <button id="btn-increase" title="Aumentar Fonte">A+</button>
             <button id="btn-speak" class="btn-action">🔊 Ouvir</button>
             <button id="btn-stop" class="btn-action btn-outline">⏹️ Parar</button>
         </div>
     </header>
 
     <main class="container">
-        <section class="hero">
-            <span class="tag">Acessibilidade & Visão</span>
-            <h1>Entendendo o Daltonismo</h1>
-            <p class="subtitle">Um panorama claro, moderno e sintetizado sobre as variações da visão de cores e seus impactos diários.</p>
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <span class="badge">Acessibilidade Interativa</span>
+            <h1>Desvendando o <span>Daltonismo</span></h1>
+            <p class="subtitle">Explore a anatomia dos fotorreceptores, os diferentes tipos de visão e os desafios do cotidiano.</p>
         </section>
 
         <!-- Navegação por Abas -->
-        <nav class="tabs-nav" aria-label="Categorias de conteúdo">
-            <button class="tab-btn active" onclick="openTab(event, 'causas')">Causas</button>
-            <button class="tab-btn" onclick="openTab(event, 'tipos')">Formas & Visão</button>
-            <button class="tab-btn" onclick="openTab(event, 'cotidiano')">Cotidiano</button>
-            <button class="tab-btn" onclick="openTab(event, 'video')">Vídeo</button>
+        <nav class="tabs-nav fade-in delay-1" aria-label="Categorias de conteúdo">
+            <button class="tab-btn active" onclick="openTab(event, 'causas')">✨ Causas & Cones</button>
+            <button class="tab-btn" onclick="openTab(event, 'tipos')">🎨 Formas & Visão</button>
+            <button class="tab-btn" onclick="openTab(event, 'cotidiano')">🚦 Cotidiano</button>
+            <button class="tab-btn" onclick="openTab(event, 'video')">🎬 Vídeo Explicativo</button>
         </nav>
 
-        <!-- Conteúdos -->
-        <div class="content-box">
+        <!-- Painel de Conteúdo -->
+        <div class="content-panel fade-in delay-2">
+            
+            <!-- Aba: Causas e Cones -->
             <section id="causas" class="tab-content active">
-                <h2>O que é e quais são as Causas?</h2>
-                <p>O daltonismo (discromatopsia) é uma condição genética e hereditária, associada ao cromossomo X, na qual o indivíduo apresenta dificuldade em distinguir certas cores do espectro luminoso.</p>
+                <h2>O que é e Quais as Causas?</h2>
+                <p>O daltonismo (discromatopsia) é uma condição genética e hereditária ligada ao cromossomo X. Ele ocorre por alterações nos <strong>fotorreceptores cones</strong> da retina, responsáveis pela captura da luz e cores.</p>
                 
-                <div class="callout">
-                    <h3>Mecanismo Biológico</h3>
-                    <p>A percepção das cores ocorre na retina por meio de células fotorreceptoras chamadas <strong>cones</strong> (especializados nas cores Vermelho, Verde e Azul). O daltonismo ocorre quando há ausência parcial, total ou mau funcionamento de um desses tipos de cones.</p>
+                <h3 class="section-subtitle">Anatomia dos Cones Afetados</h3>
+                <p>Existem 3 tipos de cones no olho humano. Dependendo se a alteração é <em>parcial</em> (Anomalia) ou <em>total</em> (Anopia), a percepção da cor muda drasticamente:</p>
+
+                <!-- Grid Visual dos Cones da Retina -->
+                <div class="cones-grid">
+                    <article class="cone-card red-cone">
+                        <div class="cone-header">
+                            <span class="cone-badge red">Cone L</span>
+                            <h4>Comprimento de Onda Longo (Vermelho)</h4>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&w=500&q=80" alt="Representação gráfica de espectro de luz vermelha captado pelo cone L da retina" class="cone-img">
+                        <ul class="cone-info">
+                            <li><strong>Afetação Parcial (Protanomalia):</strong> O cone L funciona com baixa sensibilidade ao vermelho.</li>
+                            <li><strong>Afetação Total (Protanopia):</strong> Ausência completa do cone L na retina.</li>
+                        </ul>
+                    </article>
+
+                    <article class="cone-card green-cone">
+                        <div class="cone-header">
+                            <span class="cone-badge green">Cone M</span>
+                            <h4>Comprimento de Onda Médio (Verde)</h4>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=500&q=80" alt="Representação de ondas de luz verde captadas pelo cone M na retina humana" class="cone-img">
+                        <ul class="cone-info">
+                            <li><strong>Afetação Parcial (Deuteranomalia):</strong> O cone M tem sensibilidade alterada à cor verde.</li>
+                            <li><strong>Afetação Total (Deuteranopia):</strong> Ausência completa de cones M funcionais.</li>
+                        </ul>
+                    </article>
+
+                    <article class="cone-card blue-cone">
+                        <div class="cone-header">
+                            <span class="cone-badge blue">Cone S</span>
+                            <h4>Comprimento de Onda Curto (Azul)</h4>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=500&q=80" alt="Representação visual do feixe de luz azul captado pelo cone S da retina" class="cone-img">
+                        <ul class="cone-info">
+                            <li><strong>Afetação Parcial (Tritanomalia):</strong> Deficiência parcial na captação do tom azul.</li>
+                            <li><strong>Afetação Total (Tritanopia):</strong> Ausência total do receptor do cone S.</li>
+                        </ul>
+                    </article>
                 </div>
             </section>
 
+            <!-- Aba: Tipos -->
             <section id="tipos" class="tab-content">
-                <h2>Como cada tipo enxerga o mundo</h2>
+                <h2>Formas de Daltonismo e Percepção Visual</h2>
                 <div class="grid">
-                    <article class="card">
-                        <div class="card-body">
+                    <article class="interactive-card">
+                        <div class="card-header">
+                            <span class="dot red"></span>
                             <h3>Protanopia / Protanomalia</h3>
-                            <p>Ausência ou alteração dos receptores de luz <strong>vermelha</strong>. Tons vermelhos tendem ao castanho, verde-escuro ou cinza.</p>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80" alt="Simulação de visão com protanopia" class="card-img">
+                        <p>Afeta os <strong>Cones L</strong> (vermelho). Os tons de vermelho são percebidos em nuances de marrom, cinza ou verde-escuro.</p>
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80" alt="Simulação de visão com protanopia" class="card-img">
+                        </div>
                     </article>
 
-                    <article class="card">
-                        <div class="card-body">
+                    <article class="interactive-card">
+                        <div class="card-header">
+                            <span class="dot green"></span>
                             <h3>Deuteranopia / Deuteranomalia</h3>
-                            <p>É o tipo mais frequente. Afeta a percepção do <strong>verde</strong>. Gera confusão entre nuances de verde, amarelo e vermelho.</p>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="Simulação de visão com deuteranopia" class="card-img">
+                        <p>Afeta os <strong>Cones M</strong> (verde). É o tipo mais comum, gerando confusão entre tons verdes, amarelos e vermelhos.</p>
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="Simulação de visão com deuteranopia" class="card-img">
+                        </div>
                     </article>
 
-                    <article class="card">
-                        <div class="card-body">
+                    <article class="interactive-card">
+                        <div class="card-header">
+                            <span class="dot blue"></span>
                             <h3>Tritanopia / Tritanomalia</h3>
-                            <p>Condição rara que prejudica a visão do <strong>azul</strong> e amarelo. O azul pode ser percebido como verde, e o amarelo como rosa.</p>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80" alt="Simulação de visão com tritanopia" class="card-img">
+                        <p>Afeta os <strong>Cones S</strong> (azul). O azul pode ser percebido como verde e o amarelo como rosa ou cinza.</p>
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80" alt="Simulação de visão com tritanopia" class="card-img">
+                        </div>
                     </article>
 
-                    <article class="card">
-                        <div class="card-body">
+                    <article class="interactive-card">
+                        <div class="card-header">
+                            <span class="dot mono"></span>
                             <h3>Acromatopsia</h3>
-                            <p>Extremamente rara. Ausência total de cones funcionais para cores. A visão é inteiramente em <strong>preto, branco e cinza</strong>.</p>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80&sat=-100" alt="Simulação monocromática de acromatopsia" class="card-img">
+                        <p>Incapacidade total de <strong>todos os cones</strong>. A visão é composta exclusivamente por tons de preto, branco e cinza.</p>
+                        <div class="img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80&sat=-100" alt="Simulação monocromática de acromatopsia" class="card-img">
+                        </div>
                     </article>
                 </div>
             </section>
 
+            <!-- Aba: Cotidiano -->
             <section id="cotidiano" class="tab-content">
-                <h2>Impacto e Consequências no Cotidiano</h2>
-                <ul class="feature-list">
-                    <li><strong>Sinalização de Trânsito:</strong> Necessidade de Memorização da ordem das luzes do semáforo, em vez do apoio exclusivo na cor.</li>
-                    <li><strong>Vestuário:</strong> Desafios na escolha e combinação harmônica de peças de roupa.</li>
-                    <li><strong>Educação e Dados:</strong> Dificuldade em compreender gráficos coloridos, mapas geográficos ou diagramas instrucionais.</li>
-                    <li><strong>Alimentação:</strong> Desafio em checar o ponto ideal de cozimento de alimentos ou o nível de maturação de frutas.</li>
-                </ul>
+                <h2>Consequências e Desafios no Cotidiano</h2>
+                <div class="list-cards">
+                    <div class="list-item">
+                        <span class="item-icon">🚦</span>
+                        <div>
+                            <h4>Trânsito e Sinalização</h4>
+                            <p>Dependência da posição relativa das luzes do semáforo em vez do tom do sinal luminoso.</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <span class="item-icon">👔</span>
+                        <div>
+                            <h4>Escolha de Vestuário</h4>
+                            <p>Combinação e diferenciação de cores em roupas e acessórios diários.</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <span class="item-icon">📊</span>
+                        <div>
+                            <h4>Educação e Trabalho</h4>
+                            <p>Leitura de gráficos coloridos, mapas temáticos, fiação elétrica codificada e interfaces digitais.</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <span class="item-icon">🍎</span>
+                        <div>
+                            <h4>Alimentação</h4>
+                            <p>Avaliação da maturação de frutas ou do ponto de cozimento ideal de carnes e vegetais.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
+            <!-- Aba: Vídeo -->
             <section id="video" class="tab-content">
                 <h2>Vídeo Explicativo</h2>
-                <div class="video-container">
+                <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/A7qGNzzqXA4" title="Vídeo Explicativo sobre Daltonismo" allowfullscreen></iframe>
                 </div>
             </section>
@@ -102,7 +187,7 @@
     </main>
 
     <footer>
-        <p>Fontes de referência: <strong>Wikipedia</strong> & <strong>Brasil Escola</strong></p>
+        <p>Desenvolvido com foco em Acessibilidade | Fontes: <strong>Wikipedia</strong> e <strong>Brasil Escola</strong></p>
     </footer>
 
     <script src="script.js"></script>
